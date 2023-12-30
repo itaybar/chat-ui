@@ -41,7 +41,6 @@
 				Sharing your data will help improve the training data and make open models better over time.
 			</p>
 		{/if}
-		<!-- svelte-ignore a11y-label-has-associated-control -->
 		<!-- <label class="mt-6 flex items-center">
 			<Switch name="hideEmojiOnSidebar" bind:checked={$settings.hideEmojiOnSidebar} />
 			<div class="inline cursor-pointer select-none items-center gap-2 pl-2">
