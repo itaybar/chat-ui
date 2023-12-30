@@ -42,12 +42,12 @@
 			</p>
 		{/if}
 		<!-- svelte-ignore a11y-label-has-associated-control -->
-		<label class="mt-6 flex items-center">
+		<!-- <label class="mt-6 flex items-center">
 			<Switch name="hideEmojiOnSidebar" bind:checked={$settings.hideEmojiOnSidebar} />
 			<div class="inline cursor-pointer select-none items-center gap-2 pl-2">
 				Hide emoticons in conversation topics
 			</div>
-		</label>
+		</label> -->
 
 		<button
 			on:click|preventDefault={() => (isConfirmingDeletion = true)}

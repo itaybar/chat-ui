@@ -24,5 +24,5 @@ export interface Settings extends Timestamps {
 export const DEFAULT_SETTINGS = {
 	shareConversationsWithModelAuthors: true,
 	activeModel: defaultModel.id,
-	hideEmojiOnSidebar: false,
+	hideEmojiOnSidebar: true,
 };
