@@ -84,7 +84,7 @@ export async function runWebSearch(
 		appendUpdate("Extracting relevant information");
 		// const topKClosestParagraphs = 8;
 		const texts = paragraphChunks.map(({ text }) => text);
-		const indices = [];
+		const indices: any[] = [];
 		// const indices = await findSimilarSentences(prompt, texts, {
 		// 	topK: topKClosestParagraphs,
 		// });
