@@ -4,10 +4,7 @@ import type { WebSearch, WebSearchSource } from "$lib/types/WebSearch";
 import { generateQuery } from "$lib/server/websearch/generateQuery";
 import { parseWeb } from "$lib/server/websearch/parseWeb";
 import { chunk } from "$lib/utils/chunk";
-import {
-	MAX_SEQ_LEN as CHUNK_CAR_LEN,
-	findSimilarSentences,
-} from "$lib/server/websearch/sentenceSimilarity";
+import { MAX_SEQ_LEN as CHUNK_CAR_LEN } from "$lib/server/websearch/sentenceSimilarity";
 import type { Conversation } from "$lib/types/Conversation";
 import type { MessageUpdate } from "$lib/types/MessageUpdate";
 import { getWebSearchProvider } from "./searchWeb";
@@ -85,11 +82,13 @@ export async function runWebSearch(
 		}
 
 		appendUpdate("Extracting relevant information");
-		const topKClosestParagraphs = 8;
+		// const topKClosestParagraphs = 8;
 		const texts = paragraphChunks.map(({ text }) => text);
-		const indices = await findSimilarSentences(prompt, texts, {
-			topK: topKClosestParagraphs,
-		});
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const indices: any[] = [];
+		// const indices = await findSimilarSentences(prompt, texts, {
+		// 	topK: topKClosestParagraphs,
+		// });
 		webSearch.context = indices.map((idx) => texts[idx]).join("");
 
 		const usedSources = new Set<string>();
