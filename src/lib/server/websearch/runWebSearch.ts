@@ -84,6 +84,7 @@ export async function runWebSearch(
 		appendUpdate("Extracting relevant information");
 		// const topKClosestParagraphs = 8;
 		const texts = paragraphChunks.map(({ text }) => text);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const indices: any[] = [];
 		// const indices = await findSimilarSentences(prompt, texts, {
 		// 	topK: topKClosestParagraphs,
