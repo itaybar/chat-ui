@@ -90,13 +90,15 @@ export async function generateCsrfToken(sessionId: string, redirectUrl: string):
 async function getOIDCClient(settings: OIDCSettings): Promise<BaseClient> {
 	const issuer = await Issuer.discover(OIDConfig.PROVIDER_URL);
 
-	return new issuer.Client({
+	let client =  new issuer.Client({
 		client_id: OIDConfig.CLIENT_ID,
 		client_secret: OIDConfig.CLIENT_SECRET,
 		redirect_uris: [settings.redirectURI],
 		response_types: ["code"],
-		[custom.clock_tolerance]: Number(OIDConfig.TOLERANCE) || undefined,
 	});
+
+	client[custom.clock_tolerance] = Number(OIDConfig.TOLERANCE) || 0;
+	return client
 }
 
 export async function getOIDCAuthorizationUrl(
