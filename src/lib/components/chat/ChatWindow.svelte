@@ -76,9 +76,7 @@
 </script>
 
 <div class="relative min-h-0 min-w-0">
-	{#if !$settings.ethicsModalAccepted}
-		<DisclaimerModal />
-	{:else if loginModalOpen}
+	{#if loginModalOpen}
 		<LoginModal
 			on:close={() => {
 				loginModalOpen = false;
