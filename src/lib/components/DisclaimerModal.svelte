@@ -13,6 +13,7 @@
 	let form: HTMLFormElement;
 	onMount(() => {
 		form.submit();
+		$settings.ethicsModalAccepted = true;
 	});
 </script>
 
